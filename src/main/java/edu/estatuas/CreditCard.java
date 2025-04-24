@@ -29,6 +29,15 @@ public class CreditCard {
         return SYMBOL;
     }
 
+    public boolean pay(double amount) {
+        if (amount > credit()) {
+            return false;
+        } else {
+            credit -= amount;
+            return true;
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
