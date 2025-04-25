@@ -25,7 +25,7 @@ public class CreditCard {
         return credit;
     }
 
-    private String symbol() {
+    public String symbol() {
         return SYMBOL;
     }
 
