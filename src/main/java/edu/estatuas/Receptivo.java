@@ -17,7 +17,7 @@ public class Receptivo {
         getGuestDispatchers().add(guestDispatcher);
     }
 
-    void dispatch(CreditCard creditCard) {
+    public void dispatch(CreditCard creditCard) {
         getGuestDispatchers().stream().forEach(g -> g.dispatch(creditCard));
     }
 
