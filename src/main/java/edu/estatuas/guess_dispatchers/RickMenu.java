@@ -1,0 +1,38 @@
+package edu.estatuas.guess_dispatchers;
+
+import edu.estatuas.CreditCard;
+import edu.estatuas.interfaces.GuestDispatcher;
+
+public class RickMenu implements GuestDispatcher {
+    private int stock;
+    private double itemCost;
+
+    public RickMenu(int stock, double itemCost) {
+        this.stock = stock;
+        this.itemCost = itemCost;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public double getItemCost() {
+        return itemCost;
+    }
+
+    private void reduceStock() {
+        stock -= 1;
+    }
+
+    @Override
+    public void dispatch(CreditCard creditCard) {
+        if (getStock() > 0 && creditCard.pay(getItemCost())) {
+            reduceStock();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "stock: " + getStock() + "\n" + "cost: " + getItemCost();
+    }
+}
