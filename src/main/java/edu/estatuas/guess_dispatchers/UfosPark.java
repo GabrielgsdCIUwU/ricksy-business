@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import edu.estatuas.CreditCard;
-import edu.estatuas.interfaces.GuessDispatcher;
+import edu.estatuas.interfaces.GuestDispatcher;
 
-public class UfosPark implements GuessDispatcher {
+public class UfosPark implements GuestDispatcher {
     private double fee = 500.0;
     private final Map<String, String> flota = new HashMap<>();
     private final List<String> creditCards = new ArrayList<>();

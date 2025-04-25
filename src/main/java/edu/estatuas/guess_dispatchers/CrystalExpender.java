@@ -1,9 +1,9 @@
 package edu.estatuas.guess_dispatchers;
 
 import edu.estatuas.CreditCard;
-import edu.estatuas.interfaces.GuessDispatcher;
+import edu.estatuas.interfaces.GuestDispatcher;
 
-public class CrystalExpender implements GuessDispatcher {
+public class CrystalExpender implements GuestDispatcher {
 
     private int stock;
     private double itemCost;
