@@ -43,4 +43,15 @@ public class CreditCardTest {
 
         assertEquals("EZI", card.symbol());
     }
+
+    @Test
+    public void testToString() {
+        String owner = "Abradolph Lincler";
+        String number = "4916119711304546";
+        CreditCard card = new CreditCard(owner, number);
+
+        String expectedString = "owner: " + owner + "\nnumber: " + number + "\ncredit: 3000.0EZI\n";
+
+        assertEquals(expectedString, card.toString());
+    }
 }

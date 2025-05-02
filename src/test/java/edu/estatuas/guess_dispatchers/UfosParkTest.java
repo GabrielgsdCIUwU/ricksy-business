@@ -1,5 +1,6 @@
 package edu.estatuas.guess_dispatchers;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -14,7 +15,7 @@ public class UfosParkTest {
         UfosPark ufosPark = new UfosPark();
         String vehicle = "UFO-1";
         ufosPark.add(vehicle);
-        
+
         assertTrue(ufosPark.getFlota().containsKey(vehicle));
     }
 
@@ -52,7 +53,7 @@ public class UfosParkTest {
         ufosPark.add(vehicle2);
 
         CreditCard creditCard = new CreditCard("Morty", "1234567890123456");
-        
+
         ufosPark.dispatch(creditCard);
         ufosPark.dispatch(creditCard);
 
@@ -70,7 +71,7 @@ public class UfosParkTest {
 
         CreditCard creditCard = new CreditCard("Morty", "1234567890123456");
 
-        assertNull(ufosPark.getUfoOf(creditCard.number())); 
+        assertNull(ufosPark.getUfoOf(creditCard.number()));
     }
 
     @Test
@@ -87,5 +88,16 @@ public class UfosParkTest {
         ufosPark.dispatch(mortyCreditCard);
 
         assertNull(ufosPark.getUfoOf(mortyCreditCard.number()));
+    }
+
+    @Test
+    public void testToString() {
+        UfosPark ufosPark = new UfosPark();
+        String vehicle1 = "UFO-1";
+        String vehicle2 = "UFO-2";
+        ufosPark.add(vehicle1);
+        ufosPark.add(vehicle2);
+
+        assertEquals("[UFO-1, UFO-2]", ufosPark.toString());
     }
 }

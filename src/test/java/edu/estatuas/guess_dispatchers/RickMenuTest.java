@@ -66,4 +66,16 @@ public class RickMenuTest {
         expender.dispatch(mortyCreditCard);
         assertEquals(1, expender.getStock());
     }
+
+    @Test
+    public void testToString() {
+        int stock = 2;
+        double itemCost = 50.0;
+
+        RickMenu expender = new RickMenu(stock, itemCost);
+
+        String expectedMessage = "stock: 2\ncost: 50.0";
+
+        assertEquals(expectedMessage, expender.toString());
+    }
 }
