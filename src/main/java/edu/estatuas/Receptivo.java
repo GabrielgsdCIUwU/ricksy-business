@@ -9,6 +9,16 @@ import edu.estatuas.interfaces.PaymentMethod;
 public class Receptivo {
     
     private final List<GuestDispatcher> guestDispatchers = new ArrayList<>();
+    private static Receptivo instance = null;
+
+    private Receptivo() {}
+
+    public static Receptivo getInstance() {
+        if (instance == null) {
+            instance = new Receptivo();
+        }
+        return instance;
+    } 
 
     List<GuestDispatcher> getGuestDispatchers() {
         return guestDispatchers;
