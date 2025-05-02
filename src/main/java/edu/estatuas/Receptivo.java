@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.estatuas.interfaces.GuestDispatcher;
+import edu.estatuas.interfaces.PaymentMethod;
 
 public class Receptivo {
     
@@ -17,8 +18,8 @@ public class Receptivo {
         getGuestDispatchers().add(guestDispatcher);
     }
 
-    public void dispatch(CreditCard creditCard) {
-        getGuestDispatchers().stream().forEach(g -> g.dispatch(creditCard));
+    public void dispatch(PaymentMethod payment) {
+        getGuestDispatchers().stream().forEach(g -> g.dispatch(payment));
     }
 
 }

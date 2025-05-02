@@ -1,7 +1,7 @@
 package edu.estatuas.guess_dispatchers;
 
-import edu.estatuas.CreditCard;
 import edu.estatuas.interfaces.GuestDispatcher;
+import edu.estatuas.interfaces.PaymentMethod;
 
 public class CrystalExpender implements GuestDispatcher {
 
@@ -26,8 +26,8 @@ public class CrystalExpender implements GuestDispatcher {
     }
 
     @Override
-    public void dispatch(CreditCard creditCard) {
-        if (getStock() > 0 && creditCard.pay(getItemCost())) {
+    public void dispatch(PaymentMethod payment) {
+        if (getStock() > 0 && payment.pay(getItemCost())) {
             reduceStock();
         }
     }
