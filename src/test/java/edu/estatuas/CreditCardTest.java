@@ -36,4 +36,11 @@ public class CreditCardTest {
         assertEquals(false, card.pay(4000.0));
         assertEquals(3000.0, card.credit(), 0.01);
     }
+
+    @Test
+    public void testSymbol() {
+        CreditCard card = new CreditCard("Abradolph Lincler", "4916119711304546");
+
+        assertEquals("EZI", card.symbol());
+    }
 }
