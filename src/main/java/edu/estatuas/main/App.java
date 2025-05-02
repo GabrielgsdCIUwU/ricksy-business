@@ -5,12 +5,13 @@ import edu.estatuas.Receptivo;
 import edu.estatuas.guess_dispatchers.CrystalExpender;
 import edu.estatuas.guess_dispatchers.RickMenu;
 import edu.estatuas.guess_dispatchers.UfosPark;
+import edu.estatuas.interfaces.PaymentMethod;
 
 public class App {
     public static void main(String[] args) {
 
         //region Credit Card
-        CreditCard abradolph = new CreditCard("Abradolph Lincler", "4916119711304546");
+        PaymentMethod abradolph = new CreditCard("Abradolph Lincler", "4916119711304546");
 
         System.out.println("\n" + "Tarjeta de Abradolph" + "\n" +
                 "====================");
@@ -51,7 +52,7 @@ public class App {
         // no le asigna ninguno.
         System.out.println("\nLLega GearHead!\n" +
                 "===============");
-        CreditCard gearHead = new CreditCard("Gearhead", "8888888888888888");
+        PaymentMethod gearHead = new CreditCard("Gearhead", "8888888888888888");
 
         gearHead.pay(3000); // le vacían la cartera
         ufosPark.dispatch(gearHead);
@@ -62,7 +63,7 @@ public class App {
         // antes de irse a squanchear
         System.out.println("\nLLega Squanchy!\n" + 
                              "==============");
-        CreditCard squanchy = new CreditCard("Squanchy", "4444444444444444");
+        PaymentMethod squanchy = new CreditCard("Squanchy", "4444444444444444");
         ufosPark.dispatch(squanchy);
         System.out.println("Su credito es: " + squanchy.credit());
         System.out.println("Su ovni es: " + ufosPark.getUfoOf(squanchy.number()));
@@ -71,7 +72,7 @@ public class App {
         // pero ya no queda ninguno disponible
         System.out.println("\nAlgun ovni para Morty?\n" + 
                              "======================");
-        CreditCard morty = new CreditCard("Morty", "0000000000000000");
+        PaymentMethod morty = new CreditCard("Morty", "0000000000000000");
         ufosPark.dispatch(morty);
         System.out.println("Su credito no ha cambiado: " + morty.credit());
         System.out.println("No hay ovni Morty: " + ufosPark.getUfoOf(morty.number()));
@@ -130,7 +131,7 @@ public class App {
         // Birdpearson es recibido en la fiesta
          System.out.println("\nLLega Birdpearson!\n" + 
                              "==================");
-        CreditCard birdpearson = new CreditCard("Birdpearson", "1111111111111111");
+        PaymentMethod birdpearson = new CreditCard("Birdpearson", "1111111111111111");
         receptivo.dispatch(birdpearson);
         mostrarReserva(birdpearson, packExpender, ufosPark);
 
@@ -176,12 +177,12 @@ public class App {
 
         
     }
-    private static void mostrarReserva(CreditCard card, CrystalExpender expender, UfosPark ufos) {
+    private static void mostrarReserva(PaymentMethod card, CrystalExpender expender, UfosPark ufos) {
         System.out.println(card);
         System.out.println("Packs: " + expender.getStock());
         System.out.println("Ovni: " + ufos.getUfoOf(card.number()));
     }
-    private static void mostrarReserva(CreditCard card, CrystalExpender expender, UfosPark ufos, RickMenu rickMenu) {
+    private static void mostrarReserva(PaymentMethod card, CrystalExpender expender, UfosPark ufos, RickMenu rickMenu) {
         System.out.println(card);
         System.out.println("Packs: " + expender.getStock());
         System.out.println("Ovni: " + ufos.getUfoOf(card.number()));
