@@ -60,4 +60,32 @@ public class UfosParkTest {
         assertNull(ufosPark.getFlota().get(vehicle2));
         assertEquals(vehicle1, ufosPark.getUfoOf(creditCard.number()));
     }
+
+    @Test
+    public void testNullUfo() {
+        UfosPark ufosPark = new UfosPark();
+        String vehicle1 = "UFO-1";
+
+        ufosPark.add(vehicle1);
+
+        CreditCard creditCard = new CreditCard("Morty", "1234567890123456");
+
+        assertNull(ufosPark.getUfoOf(creditCard.number())); 
+    }
+
+    @Test
+    public void testDispatchNoCredit() {
+        UfosPark ufosPark = new UfosPark();
+        String vehicle1 = "UFO-1";
+
+        ufosPark.add(vehicle1);
+
+        CreditCard mortyCreditCard = new CreditCard("Morty", "1234567890123456");
+
+        mortyCreditCard.pay(3000.0);
+
+        ufosPark.dispatch(mortyCreditCard);
+
+        assertNull(ufosPark.getUfoOf(mortyCreditCard.number()));
+    }
 }
