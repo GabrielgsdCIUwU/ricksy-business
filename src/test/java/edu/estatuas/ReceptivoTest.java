@@ -12,7 +12,7 @@ public class ReceptivoTest {
     
     @Test
     public void testRegistra() {
-        Receptivo receptivo = new Receptivo();
+        Receptivo receptivo = Receptivo.getInstance();
 
         CrystalExpender crystalExpender = new CrystalExpender(10, 10);
         UfosPark ufosPark = new UfosPark();
@@ -27,14 +27,7 @@ public class ReceptivoTest {
     
     @Test
     public void testDispatch() {
-        Receptivo receptivo = new Receptivo();
-
-        CrystalExpender crystalExpender = new CrystalExpender(10, 10);
-        UfosPark ufosPark = new UfosPark();
-        ufosPark.add("UFO-1");
-        
-        receptivo.registra(crystalExpender);
-        receptivo.registra(ufosPark);
+        Receptivo receptivo = Receptivo.getInstance();
 
         CreditCard card = new CreditCard("Abradolph Lincler", "4916119711304546");
         receptivo.dispatch(card);
