@@ -111,7 +111,7 @@ public class App {
         System.out.println("Credito de GearHead: " + gearHead.credit());
 
         //region Receptivo
-        Receptivo receptivo = new Receptivo();
+        Receptivo receptivo = Receptivo.getInstance();
         receptivo.registra(packExpender);
         receptivo.registra(ufosPark);
 
