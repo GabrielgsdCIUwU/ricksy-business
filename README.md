@@ -35,7 +35,9 @@ El objetivo principal del proyecto es simular cómo los invitados interactúan c
   - `UfosPark`: Gestiona la flota de ovnis disponibles para la fiesta.
   - `CrystalExpender`: Administra los packs de bienvenida.
   - `RickMenu`: Maneja los menús especiales.
-  - `Receptivo`: Coordina todos los servicios y asegura que los invitados puedan acceder a ellos.
+  - `Receptivo`: Coordina todos los servicios y asegura que los invitados   puedan acceder a ellos. 
+      > A partir de la versión 2.0.0, esta clase sigue el patrón Singleton. Ya no se instancia directamente con `new`, 
+      > sino que se accede mediante `Receptivo.getInstance()`.
 
 - **Interacción**: Cada clase tiene métodos que permiten realizar acciones como pagar, reservar o registrar servicios. El flujo principal del programa se encuentra en la clase `App`, que simula la llegada de los invitados y su interacción con los servicios.
 

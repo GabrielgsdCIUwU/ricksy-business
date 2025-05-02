@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import edu.estatuas.CreditCard;
 import edu.estatuas.interfaces.GuestDispatcher;
+import edu.estatuas.interfaces.PaymentMethod;
 
 public class UfosPark implements GuestDispatcher {
     private double fee = 500.0;
@@ -33,7 +33,7 @@ public class UfosPark implements GuestDispatcher {
         for (Map.Entry<String, String> entry : getFlota().entrySet()) {
             String vehicle = entry.getKey();
             String entryCreditNumber = entry.getValue();
-            if (entryCreditNumber != null && entryCreditNumber.equals(creditNumber)) {
+            if (creditNumber.equals(entryCreditNumber)) {
                 return vehicle;
             }
         }
@@ -41,11 +41,11 @@ public class UfosPark implements GuestDispatcher {
     }
 
     @Override
-    public void dispatch(CreditCard creditCard) {
-        String creditCardNumber = creditCard.number();
+    public void dispatch(PaymentMethod payment) {
+        String creditCardNumber = payment.number();
         if (!getCreditCards().contains(creditCardNumber)) {
             for (String ovni : getFlota().keySet()) {
-                if (getFlota().get(ovni) == null && creditCard.pay(fee)) {
+                if (getFlota().get(ovni) == null && payment.pay(fee)) {
                     getFlota().put(ovni, creditCardNumber);
                     addCreditCard(creditCardNumber);
                     break;

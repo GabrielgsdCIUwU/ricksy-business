@@ -1,6 +1,8 @@
 package edu.estatuas;
 
-public class CreditCard {
+import edu.estatuas.interfaces.PaymentMethod;
+
+public class CreditCard implements PaymentMethod {
     private final String owner;
     private final String number;
     private double credit;
