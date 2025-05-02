@@ -33,7 +33,7 @@ public class UfosPark implements GuestDispatcher {
         for (Map.Entry<String, String> entry : getFlota().entrySet()) {
             String vehicle = entry.getKey();
             String entryCreditNumber = entry.getValue();
-            if (entryCreditNumber != null && entryCreditNumber.equals(creditNumber)) {
+            if (creditNumber.equals(entryCreditNumber)) {
                 return vehicle;
             }
         }
